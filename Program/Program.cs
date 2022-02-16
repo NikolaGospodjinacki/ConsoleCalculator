@@ -10,10 +10,10 @@ namespace CaculatorProgram
             bool IsOver = false;
             while (!IsOver)
             {
-                string firstInput = "";
-                string secondInput = "";
-                string @operator = "";
-                double result = 0;
+                string firstInput;
+                string secondInput;
+                string @operator;
+                double result;
 
                 Console.WriteLine("This is a basic command line calculator");
                 Console.WriteLine("-----------------------------------------");
@@ -21,7 +21,7 @@ namespace CaculatorProgram
                 firstInput = Console.ReadLine();
 
                 //Converts input to double, checks if the input is correct
-                double firstClean = 0;
+                double firstClean;
                 while (!double.TryParse(firstInput, out firstClean))
                 {
                     Console.WriteLine("Input for the first number is not valid, try again:\n");
@@ -31,7 +31,7 @@ namespace CaculatorProgram
                 Console.WriteLine("Enter second number");
                 secondInput = Console.ReadLine();
 
-                double secondClean = 0;
+                double secondClean;
                 while (!double.TryParse(secondInput, out secondClean))
                 {
                     Console.WriteLine("Input for the second number is not valid, try again:\n");
@@ -46,9 +46,12 @@ namespace CaculatorProgram
                 Console.WriteLine("Your choice?\n");
                
                 @operator = Console.ReadLine();
+
+                CalculatorLibrary calc = new();
+                result = calc.CalculateValue(firstClean, secondClean, @operator);
                 try
                 {
-                    result = CalculatorLibrary.CalculateValue(firstClean, secondClean, @operator);
+                    
                     if (double.IsNaN(result) || double.IsInfinity(result))
                     {
                         Console.WriteLine("Calculation is not valid");
