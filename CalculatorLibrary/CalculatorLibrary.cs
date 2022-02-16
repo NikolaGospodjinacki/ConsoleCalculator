@@ -6,11 +6,10 @@ using System.Threading.Tasks;
 
 namespace CalculatorProgram
 {
-   public class CalculatorLibrary
+    public class CalculatorLibrary
     {
         public static double CalculateValue(double firstNumber, double secondNumber, string operation)
         {
-            if (firstNumber != 0 && secondNumber != 0)
             {
                 return operation switch
                 {
@@ -20,8 +19,8 @@ namespace CalculatorProgram
                     "e" => firstNumber / secondNumber,
                     _ => double.NaN
                 };
+
             }
-            else return double.NaN;
         }
     }
 }

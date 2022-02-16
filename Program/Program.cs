@@ -49,13 +49,13 @@ namespace CaculatorProgram
                 try
                 {
                     result = CalculatorLibrary.CalculateValue(firstClean, secondClean, @operator);
-                    if (double.IsNaN(result))
+                    if (double.IsNaN(result) || double.IsInfinity(result))
                     {
                         Console.WriteLine("Calculation is not valid");
                     }
                     else
                     {
-                        Console.WriteLine("Result for {0} and {1} is: {2}", firstClean, secondClean, result);
+                        Console.WriteLine("Result for {0} and {1} is: {2:0.000}", firstClean, secondClean, result);
                     }
                 }
                 catch (Exception e)
